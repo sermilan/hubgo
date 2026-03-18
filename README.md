@@ -3,7 +3,7 @@
 <div align="center">
 
 [![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/YOUR_USERNAME/datasec-hub/releases)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
+[![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](./LICENSE)
 [![Platform](https://img.shields.io/badge/platform-Web-orange.svg)](#)
 [![React](https://img.shields.io/badge/React-18.3-61DAFB.svg?logo=react)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6.svg?logo=typescript)](https://www.typescriptlang.org/)
@@ -351,7 +351,7 @@ npm run dev
 
 ## 📝 许可证
 
-本项目采用 MIT 许可证 - 详见 [LICENSE](./LICENSE) 文件。
+本项目采用 Apache License 2.0 许可证 - 详见 [LICENSE](./LICENSE) 文件。
 
 ## 🙏 致谢
 
