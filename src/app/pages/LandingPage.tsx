@@ -424,8 +424,8 @@ export function LandingPage({ onGetStarted, onLogin }: LandingPageProps) {
             <div>
               <h4 className="text-white mb-4">联系我们</h4>
               <ul className="space-y-2 text-blue-300 text-sm">
-                <li>邮箱：contact@datasec-hub.com</li>
-                <li>电话：400-123-4567</li>
+                <li>邮箱：7709131@qq.com</li>
+                <li>微信：q7709131</li>
                 <li>地址：安徽 · 芜湖</li>
               </ul>
             </div>
