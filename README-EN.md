@@ -282,7 +282,7 @@ hubgo/
 | [DEVELOPMENT_STATUS.md](./DEVELOPMENT_STATUS.md) | Development status report |
 | [IMPLEMENTATION_GUIDE.md](./IMPLEMENTATION_GUIDE.md) | Backend implementation guide |
 | [API_INTEGRATION_GUIDE.md](./API_INTEGRATION_GUIDE.md) | API integration guide |
-| [BUSINESS_PLAN.md](./BUSINESS_PLAN.md) | Business plan |
+| [PROJECT_ROADMAP.md](./PROJECT_ROADMAP.md) | Project roadmap and AI enablement plan |
 
 ---
 

@@ -301,7 +301,7 @@ datasec-hub/
 ├── IMPLEMENTATION_GUIDE.md            # 实施指南
 ├── DEVELOPMENT_STATUS.md              # 开发状态（本文档）
 ├── API_INTEGRATION_GUIDE.md           # API集成指南
-├── BUSINESS_PLAN.md                   # 商业计划
+├── PROJECT_ROADMAP.md                 # 项目路线图
 └── package.json                       # 依赖配置
 ```
 
@@ -454,7 +454,7 @@ datasec-hub/
 2. **SYSTEM_GUIDE.md** - 系统使用指南
 3. **IMPLEMENTATION_GUIDE.md** - 后端实施指南（包含数据库设计、API设计等）
 4. **API_INTEGRATION_GUIDE.md** - API集成指南
-5. **BUSINESS_PLAN.md** - 商业计划和产品定位
+5. **PROJECT_ROADMAP.md** - 项目发展路线图和AI赋能规划
 
 ---
 
