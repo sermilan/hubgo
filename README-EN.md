@@ -184,8 +184,8 @@ NestJS 11 + TypeScript
 
 ```bash
 # 1. Clone repository
-git clone https://github.com/sermilan/hubgo.git
-cd hubgo
+git clone https://github.com/sermilan/hubco.git
+cd hubco
 
 # 2. Start dependency services (PostgreSQL + Redis + Elasticsearch)
 cd backend && docker-compose up -d && cd ..
@@ -213,8 +213,8 @@ If you don't need the backend, use mock data for development/demo:
 
 ```bash
 # Clone repository
-git clone https://github.com/sermilan/hubgo.git
-cd hubgo
+git clone https://github.com/sermilan/hubco.git
+cd hubco
 
 # Install dependencies
 npm install
@@ -240,7 +240,7 @@ cd backend && npm run build
 ## 📁 Project Structure
 
 ```
-hubgo/
+hubco/
 ├── src/                               # Frontend source
 │   ├── app/
 │   │   ├── pages/                     # Page components (4 pages)

@@ -2,7 +2,7 @@
 
 <div align="center">
 
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/sermilan/hubgo/releases)
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/sermilan/hubco/releases)
 [![License](https://img.shields.io/badge/license-GPL--2.0-blue.svg)](./LICENSE)
 [![Platform](https://img.shields.io/badge/platform-Web-orange.svg)](#)
 [![React](https://img.shields.io/badge/React-18.3-61DAFB.svg?logo=react)](https://react.dev/)
@@ -212,7 +212,7 @@ NestJS 11 + TypeScript
 ## 📊 项目结构
 
 ```
-hubgo/
+hubco/
 ├── src/                               # 前端源码
 │   ├── app/
 │   │   ├── App.tsx                    # 主应用入口
@@ -264,7 +264,7 @@ hubgo/
 
 ```bash
 # 1. 克隆项目
-git clone https://github.com/sermilan/hubgo.git
+git clone https://github.com/sermilan/hubco.git
 cd hubgo
 
 # 2. 启动依赖服务（PostgreSQL + Redis + Elasticsearch）
@@ -293,7 +293,7 @@ npm run dev
 
 ```bash
 # 克隆项目
-git clone https://github.com/sermilan/hubgo.git
+git clone https://github.com/sermilan/hubco.git
 cd hubgo
 
 # 安装依赖

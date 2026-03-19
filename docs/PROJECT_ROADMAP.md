@@ -194,8 +194,8 @@ AI：多厂商统一接口层
 
 ## 📞 参与项目
 
-- **GitHub**: https://github.com/sermilan/hubgo
-- **问题反馈**: [GitHub Issues](https://github.com/sermilan/hubgo/issues)
+- **GitHub**: https://github.com/sermilan/hubco
+- **问题反馈**: [GitHub Issues](https://github.com/sermilan/hubco/issues)
 - **贡献指南**: [CONTRIBUTING.md](./CONTRIBUTING.md)
 
 ---

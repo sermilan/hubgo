@@ -1,5 +1,5 @@
 {
-  "name": "hubgo",
+  "name": "hubco",
   "private": false,
   "version": "1.0.0",
   "description": "数据安全合规知识服务平台 - DataSec Hub",
@@ -7,7 +7,7 @@
   "license": "GPL-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sermilan/hubgo.git"
+    "url": "https://github.com/sermilan/hubco.git"
   },
   "scripts": {
     "build": "vite build",

@@ -20,8 +20,8 @@
 1. **Fork 仓库** - 点击 GitHub 上的 Fork 按钮
 2. **克隆您的 Fork**
    ```bash
-   git clone https://github.com/sermilan/hubgo.git
-   cd hubgo
+   git clone https://github.com/sermilan/hubco.git
+   cd hubco
    ```
 3. **创建分支**
    ```bash
@@ -80,7 +80,7 @@
 
 ## 问题反馈
 
-- GitHub Issues: [提交 Issue](https://github.com/sermilan/hubgo/issues)
+- GitHub Issues: [提交 Issue](https://github.com/sermilan/hubco/issues)
 - 邮件: contact@datasec-hub.com
 
 ## 行为准则
