@@ -19,16 +19,17 @@
 
 ## 🎉 项目状态
 
-✅ **前端完成** - 所有前端功能已完整实现，包括4大页面、11个核心模块、40+组件  
-🚧 **后端开发** - 准备进入后端集成阶段  
-📚 **文档完善** - 提供完整的系统文档和开发指南  
+✅ **前端完成** - 所有前端功能已完整实现，包括4大页面、11个核心模块、40+组件
+✅ **后端完成** - NestJS后端已全部实现，包括认证、政策/COU/场景管理、AI集成等模块
+✅ **API对接** - 前端API服务层完成，支持Mock/真实API切换
+📚 **文档完善** - 提供完整的系统文档和开发指南
 
 **当前可用功能**：
 - ✅ 完整的UI/UX界面
 - ✅ 所有业务流程演示
-- ✅ 模拟数据支持
-- ✅ API接口设计
-- ⏳ 真实后端集成（开发中）
+- ✅ 模拟数据支持（开发模式）
+- ✅ 真实后端API（生产模式）
+- ✅ 完整的API接口实现
 
 ---
 
@@ -164,25 +165,41 @@ React 18.3 + TypeScript 5.x
 
 ```
 
-### 后端技术栈（推荐）
-
-详见 [实施指南](./docs/IMPLEMENTATION_GUIDE.md)
+### 后端技术栈
 
 ```
-Node.js/NestJS 后端
-├── 数据库：PostgreSQL 15
-├── 搜索引擎：Elasticsearch
+NestJS 11 + TypeScript
+├── 数据库：PostgreSQL 15 + TypeORM
+├── 搜索引擎：Elasticsearch 8
 ├── 缓存：Redis 7.x
-├── 对象存储：MinIO / 阿里云OSS
 ├── 认证：JWT + Passport
-└── AI服务：OpenAI API
+├── 文档：Swagger/OpenAPI
+└── AI服务：支持7家国内主流AI厂商
+    ├── 智谱AI (GLM)
+    ├── DeepSeek
+    ├── Kimi (Moonshot)
+    ├── 百度文心一言
+    ├── 阿里通义千问
+    ├── 豆包
+    └── OpenAI兼容接口
 ```
+
+**已实现模块**：
+- ✅ 用户认证（注册/登录/刷新Token）
+- ✅ 政策管理（CRUD/筛选/统计）
+- ✅ COU管理（CRUD/搜索/关联查询）
+- ✅ 场景管理（CRUD/模板/克隆/版本）
+- ✅ 标签系统（五维分类管理）
+- ✅ 全文搜索（Elasticsearch/高亮/建议）
+- ✅ AI集成（7家厂商/统一接口）
+- ✅ 导入导出（CSV/JSON/Excel）
+- ✅ 数据统计（系统概览/趋势分析）
 
 ## 📊 项目结构
 
 ```
 hubgo/
-├── src/
+├── src/                               # 前端源码
 │   ├── app/
 │   │   ├── App.tsx                    # 主应用入口
 │   │   ├── pages/                     # 页面组件 (4个)
@@ -190,58 +207,91 @@ hubgo/
 │   │   │   ├── AuthPage.tsx          # 登录注册
 │   │   │   ├── MainApp.tsx           # 主应用
 │   │   │   └── AdminPage.tsx         # 后台管理
-│   │   ├── components/                # 业务组件 (15+)
+│   │   ├── components/                # 业务组件 (60+)
 │   │   │   ├── COUExplorer.tsx       # COU浏览器
 │   │   │   ├── PolicyExplorer.tsx    # 政策浏览器
 │   │   │   ├── SceneManager.tsx      # 场景管理器
 │   │   │   ├── SceneBuilder.tsx      # 场景构建器
 │   │   │   ├── Dashboard.tsx         # 数据看板
 │   │   │   ├── UserSettings.tsx      # 用户设置
-│   │   │   ├── ApiDocumentation.tsx  # API文档
-│   │   │   ├── admin/                # 后台管理组件 (4个)
-│   │   │   │   ├── PolicyManagement.tsx
-│   │   │   │   ├── COUManagement.tsx
-│   │   │   │   ├── UserManagement.tsx
-│   │   │   │   └── SystemSettings.tsx
+│   │   │   ├── admin/                # 后台管理组件
 │   │   │   └── ui/                   # UI组件库 (40+)
 │   │   ├── types/                    # 类型定义
-│   │   │   └── index.ts
 │   │   ├── data/                     # 模拟数据
-│   │   │   └── mockData.ts
+│   │   ├── hooks/                    # React Hooks
 │   │   └── services/                 # API服务
-│   │       └── api.ts
-│   └── styles/                       # 样式文件
-├── 📚 文档
-│   ├── README.md                     # 项目说明（本文档）
-│   ├── QUICK_START.md                # 快速开始指南
-│   ├── DEVELOPMENT_STATUS.md         # 开发状态报告
-│   ├── IMPLEMENTATION_GUIDE.md       # 后端实施指南
-│   ├── SYSTEM_OVERVIEW.md            # 系统概述
-│   ├── SYSTEM_GUIDE.md               # 系统使用指南
-│   ├── API_INTEGRATION_GUIDE.md      # API集成指南
-│   └── BUSINESS_PLAN.md              # 商业计划书
+│   ├── styles/                       # 样式文件
+│   └── test/                         # 测试文件
+├── backend/                           # 后端源码
+│   ├── src/
+│   │   ├── entities/                 # 数据库实体 (8个)
+│   │   ├── modules/                  # 功能模块
+│   │   │   ├── auth/                 # 认证模块
+│   │   │   ├── policies/             # 政策模块
+│   │   │   ├── cous/                 # COU模块
+│   │   │   ├── scenes/               # 场景模块
+│   │   │   ├── tags/                 # 标签模块
+│   │   │   ├── search/               # 搜索模块
+│   │   │   ├── ai/                   # AI集成模块
+│   │   │   ├── analytics/            # 数据统计模块
+│   │   │   └── import-export/        # 导入导出模块
+│   │   ├── config/                   # 配置文件
+│   │   └── main.ts                   # 入口文件
+│   ├── test/                         # 测试文件
+│   └── docker-compose.yml            # Docker配置
+├── docs/                              # 文档目录 (13个)
+├── .github/                           # GitHub配置
 └── package.json
 ```
 
 ## 🚀 快速开始
 
-### 方式一：直接运行（推荐）
+### 方式一：完整启动（前后端）
+
+```bash
+# 1. 克隆项目
+git clone https://github.com/sermilan/hubgo.git
+cd hubgo
+
+# 2. 启动依赖服务（PostgreSQL + Redis + Elasticsearch）
+cd backend && docker-compose up -d && cd ..
+
+# 3. 启动后端
+cd backend
+npm install
+cp .env.example .env  # 编辑 .env 配置数据库连接
+npm run start:dev &
+cd ..
+
+# 4. 启动前端
+npm install
+npm run dev
+
+# 访问应用
+# 前端 http://localhost:5173
+# 后端 API http://localhost:3000
+# API 文档 http://localhost:3000/api
+```
+
+### 方式二：仅启动前端（Mock数据模式）
+
+如果不需要后端，可以使用Mock数据进行开发演示：
 
 ```bash
 # 克隆项目
 git clone https://github.com/sermilan/hubgo.git
+cd hubgo
 
 # 安装依赖
 npm install
 
-# 启动开发服务器
+# 启动开发服务器（使用Mock数据）
 npm run dev
 
-# 访问应用（自动打开浏览器）
-# http://localhost:5173
+# 访问 http://localhost:5173
 ```
 
-### 方式二：查看文档
+### 方式三：查看文档
 
 📖 **推荐阅读顺序**：
 
@@ -250,7 +300,7 @@ npm run dev
 3. **[SYSTEM_OVERVIEW.md](./docs/SYSTEM_OVERVIEW.md)** - 理解系统架构
 4. **[IMPLEMENTATION_GUIDE.md](./docs/IMPLEMENTATION_GUIDE.md)** - 开始后端开发
 
-### 方式三：API集成
+### 方式四：API集成
 
 详见 [API集成指南](./docs/API_INTEGRATION_GUIDE.md)
 
@@ -322,28 +372,59 @@ npm run dev
 所有前端功能已完整实现：
 - ✅ 4个核心页面
 - ✅ 11个业务模块
-- ✅ 40+ UI组件
+- ✅ 60+ 业务组件 + 40+ UI组件
 - ✅ 完整的类型系统
-- ✅ 模拟数据支持
+- ✅ API服务层（支持Mock/真实API切换）
 
-### 后端开发（进行中）
+**启动前端**：
+```bash
+# 安装依赖
+npm install
 
-按照 [实施指南](./docs/IMPLEMENTATION_GUIDE.md) 进行：
+# 启动开发服务器
+npm run dev
 
-**阶段一**：基础架构（Week 1-2）
-- 搭建后端框架
-- 配置数据库
-- 实现认证系统
+# 访问 http://localhost:5173
+```
 
-**阶段二**：核心API（Week 3-4）
-- 政策和COU管理
-- 场景和权重计算
-- 全文搜索
+### 后端开发（已完成）
 
-**阶段三**：AI增强（Week 5-6）
-- AI提取COU
-- 智能标签推荐
-- 性能优化
+完整的 NestJS 后端实现，详见 [实施指南](./docs/IMPLEMENTATION_GUIDE.md)
+
+**核心功能**：
+- ✅ JWT认证（注册/登录/刷新Token）
+- ✅ 政策管理（CRUD/筛选/统计/导入导出）
+- ✅ COU管理（CRUD/搜索/关联查询）
+- ✅ 场景管理（CRUD/模板/克隆/版本控制）
+- ✅ 标签系统（五维分类管理）
+- ✅ 全文搜索（Elasticsearch/高亮/搜索建议）
+- ✅ AI集成（7家国内主流AI厂商统一接口）
+- ✅ 数据统计（系统概览/趋势分析/用户行为）
+
+**启动后端**：
+```bash
+cd backend
+
+# 安装依赖
+npm install
+
+# 配置环境变量（复制示例文件并修改）
+cp .env.example .env
+
+# 启动开发服务器
+npm run start:dev
+
+# 访问 http://localhost:3000
+# API文档 http://localhost:3000/api
+```
+
+**使用Docker启动依赖服务**：
+```bash
+cd backend
+
+# 启动 PostgreSQL + Redis + Elasticsearch
+docker-compose up -d
+```
 
 ## 🤝 贡献
 
@@ -367,6 +448,6 @@ npm run dev
 
 Made with ❤️ by DataSec Team
 
-**当前版本**: v1.0.0-frontend-complete | **最后更新**: 2024-12-26
+**当前版本**: v1.0.0 | **最后更新**: 2025-03-19
 
 </div>

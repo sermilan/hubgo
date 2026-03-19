@@ -19,16 +19,17 @@
 
 ## 🎉 Project Status
 
-✅ **Frontend Complete** - All frontend features implemented: 4 pages, 11 core modules, 40+ components
-🚧 **Backend Development** - NestJS backend in progress
+✅ **Frontend Complete** - All frontend features implemented: 4 pages, 11 core modules, 60+ business components + 40+ UI components
+✅ **Backend Complete** - Full NestJS implementation with auth, policy/COU/scene management, AI integration
+✅ **API Integration** - Frontend API service layer complete, supports Mock/Real API switching
 📚 **Documentation** - Complete system documentation and guides
 
 **Current Features**:
 - ✅ Complete UI/UX interface
 - ✅ All business workflows
-- ✅ Mock data support
-- ✅ API interface design
-- ⏳ Real backend integration (in development)
+- ✅ Mock data support (dev mode)
+- ✅ Real backend API (production mode)
+- ✅ Complete REST API implementation
 
 ---
 
@@ -145,27 +146,70 @@ React 18.3 + TypeScript 5.x
 3. **Main App** - 7 modules: COU Browser, Policy Browser, Scenario Manager, etc.
 4. **Admin Dashboard** - Policy management, COU management, user management
 
-### Backend Stack (In Development)
+### Backend Stack (Completed)
 
 ```
-NestJS + TypeScript
-├── Database: PostgreSQL 15
-├── Search: Elasticsearch
+NestJS 11 + TypeScript
+├── Database: PostgreSQL 15 + TypeORM
+├── Search: Elasticsearch 8
 ├── Cache: Redis 7.x
 ├── Auth: JWT + Passport
-└── AI Services: Multiple LLM providers
+├── Docs: Swagger/OpenAPI
+└── AI Services: 7 major domestic AI providers
+    ├── Zhipu AI (GLM)
+    ├── DeepSeek
+    ├── Kimi (Moonshot)
+    ├── Baidu ERNIE
+    ├── Alibaba Tongyi
+    ├── Doubao
+    └── OpenAI-compatible API
 ```
+
+**Implemented Modules**:
+- ✅ Authentication (Register/Login/Token refresh)
+- ✅ Policy Management (CRUD/Filter/Stats)
+- ✅ COU Management (CRUD/Search/Related queries)
+- ✅ Scenario Management (CRUD/Templates/Clone/Version)
+- ✅ Tag System (Five-dimensional classification)
+- ✅ Full-text Search (Elasticsearch/Highlight/Suggestions)
+- ✅ AI Integration (7 providers/Unified interface)
+- ✅ Import/Export (CSV/JSON/Excel)
+- ✅ Analytics (System overview/Trend analysis)
 
 ---
 
 ## 🚀 Quick Start
 
-### Prerequisites
+### Option 1: Full Stack (Frontend + Backend)
 
-- Node.js 18+
-- npm or pnpm
+```bash
+# 1. Clone repository
+git clone https://github.com/sermilan/hubgo.git
+cd hubgo
 
-### Installation
+# 2. Start dependency services (PostgreSQL + Redis + Elasticsearch)
+cd backend && docker-compose up -d && cd ..
+
+# 3. Start backend
+cd backend
+npm install
+cp .env.example .env  # Edit .env to configure database
+npm run start:dev &
+cd ..
+
+# 4. Start frontend
+npm install
+npm run dev
+
+# Access application
+# Frontend: http://localhost:5173
+# Backend API: http://localhost:3000
+# API Docs: http://localhost:3000/api
+```
+
+### Option 2: Frontend Only (Mock Data Mode)
+
+If you don't need the backend, use mock data for development/demo:
 
 ```bash
 # Clone repository
@@ -175,17 +219,20 @@ cd hubgo
 # Install dependencies
 npm install
 
-# Start dev server
+# Start dev server (using mock data)
 npm run dev
 
-# Open browser
-# http://localhost:5173
+# Access http://localhost:5173
 ```
 
 ### Build for Production
 
 ```bash
+# Frontend
 npm run build
+
+# Backend
+cd backend && npm run build
 ```
 
 ---
@@ -194,18 +241,35 @@ npm run build
 
 ```
 hubgo/
-├── src/
+├── src/                               # Frontend source
 │   ├── app/
-│   │   ├── pages/              # Page components
-│   │   ├── components/         # Business components
-│   │   ├── types/              # Type definitions
-│   │   ├── data/               # Mock data
-│   │   └── services/           # API services
-│   └── styles/                 # Styles
-├── backend/                    # NestJS backend
-├── docs/                       # Documentation
-├── public/                     # Static assets
-└── package.json
+│   │   ├── pages/                     # Page components (4 pages)
+│   │   ├── components/                # Business components (60+)
+│   │   │   ├── admin/                 # Admin components
+│   │   │   └── ui/                    # UI components (40+)
+│   │   ├── types/                     # Type definitions
+│   │   ├── data/                      # Mock data
+│   │   ├── hooks/                     # React Hooks
+│   │   └── services/                  # API services
+│   ├── styles/                        # Style files
+│   └── test/                          # Test files
+├── backend/                           # Backend source
+│   ├── src/
+│   │   ├── entities/                  # Database entities (8)
+│   │   ├── modules/                   # Feature modules
+│   │   │   ├── auth/                  # Authentication
+│   │   │   ├── policies/              # Policy module
+│   │   │   ├── cous/                  # COU module
+│   │   │   ├── scenes/                # Scenario module
+│   │   │   ├── tags/                  # Tag module
+│   │   │   ├── search/                # Search module
+│   │   │   ├── ai/                    # AI integration
+│   │   │   ├── analytics/             # Analytics
+│   │   │   └── import-export/         # Import/Export
+│   │   └── config/                    # Configuration
+│   └── docker-compose.yml             # Docker config
+├── docs/                              # Documentation (13 docs)
+└── .github/                           # GitHub config
 ```
 
 ---
